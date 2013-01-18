@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class affine {
+public static void main(String args[]){
+public static int inv(int a){
+	int i;
+	for(i=1;i<27;i++){
+		if((i*a)%26==1){
+			break;
+		}
+	}
+	return i;
+}
+
+	System.out.println("enter the string");
+	Scanner input=new Scanner(System.in);
+	String str=input.nextLine();
+	//int a=3;
+	//System.out.println("inverse of a is "+inv(a));
+		for(int b=0;b<25;b++){
+			for(int a=1;a<26;a=a+2){
+				if(a==13){
+					continue;
+				}
+				else{
+				System.out.print("the cipher for a="+a+" and b="+b+" is ");
+				for(int i=0;i<str.length();i++){
+					char word=str.charAt(i);
+					int q=(int)word;
+					int r=((q-b-97)*inv(a))%26;
+					if(r>=0)
+					{
+						System.out.print((char)(r+97));
+					}
+					else
+					{
+						System.out.print((char)(r+123));
+					}
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+}
